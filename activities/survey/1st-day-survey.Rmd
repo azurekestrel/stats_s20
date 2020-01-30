@@ -1,0 +1,74 @@
+---
+title: "1st-day-survey"
+output:
+  ioslides_presentation:
+    widescreen: yes
+  beamer_presentation: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## First Day Survey
+
+QR Code for First Day Survey
+
+![](images/1st_day_survey_link.png)
+
+## Surveys
+
+  >- A researcher often collects data about a population through surveys
+  >- If the survey reaches the entire population it is called a census
+  >- Typically surveys only sample a portion of the population
+
+## Categorizing a Survey 
+
+  >- Two primary data collection methods
+  >- Experiments and observational studies
+  >- A survey is an observational study
+
+## Disciminating Experiments and Observational Studies
+
+  >- In experiments, the researchers intentionally interfere with the subjects.
+  >- In observational studies, the researchers attempt to minimize any inteference with the subjects (merely observing).
+
+## Differences in Possible Conclusions from Experiments and Observational Studies
+
+  >- In experiments, it is possible to infer causal relationships between variables.
+  >- In observational studies, it is possible to identify associations between variables.
+  >- **Caution**: association does not imply causation.
+  
+## Types of Variables
+
+  >- Categorical 
+  >- Numerical
+
+## List of Variables from Survey 
+
+<div style="float: left; width: 50%;">
+
+  - name
+  - section
+  - n_courses
+  - n_semesters
+  - n_credits_earned
+  - enrolled_hybrid_online
+  - transporation_method
+  - distance_miles
+
+  
+</div>
+
+<div style="float: right; width: 50%;">
+
+  - distance_minutes
+  - taken_statistics
+  - taken_cc_statistics
+  - highest_math
+  - comfort_decimals
+  - commitment
+  - missed_days
+  - wake_by_alarm
+
+</div>

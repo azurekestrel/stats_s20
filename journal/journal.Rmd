@@ -1,0 +1,22 @@
+---
+title: "Journal"
+author: "Henry Lin"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Entry 1
+
+As people will interact with the same events differently and with varying results, it is important to have understanding that some people are just inherently not capable of certain actions or meeting certain requirements. Due to such a limitation, it is important to at least be able to grasp the larger concepts and the details pertinent to the immediate fulfilling of the tasks of hand at the very minimum. 
+
+Refleciton may also mean that there is a requirement to assess how pertinenet certain actions or information may to be the the greater strategic learning of a specific field. As such, there are certain important questions to be asked. Including, but not limited to:
+  
+  * What is the point of this object and how does it fall within the greater scenes of your own learning and actions?  
+    + If it does, is one able to interface with it well?
+  * What are potential problems with the objects that one may enocounter while interfacing with it? Biases? Language?
+  * Has there been a consideration for context? People say the Spanish Inquisition was cruel, but by the standards then, it was incredibly humane. 
+
+In other words, where does something fall within the strategic goals, what are it's and our strenths and weaknesses, and how can it be utilized?

@@ -20,3 +20,20 @@ Refleciton may also mean that there is a requirement to assess how pertinenet ce
   * Has there been a consideration for context? People say the Spanish Inquisition was cruel, but by the standards then, it was incredibly humane. 
 
 In other words, where does something fall within the strategic goals, what are it's and our strenths and weaknesses, and how can it be utilized?
+
+### Entry 2
+
+Three words that come to mind when asked about sampling. 
+
+Proporortion. Population. Relativity.
+
+What makes for an effective sample? What size should a sample be? How do we minimize or even avoid sampling bias?
+
+A sample should be like a nice slice of prime rib, rather than just a collection of random bites that comprise the same amount of prime rib. 
+
+1. Get familiar with data sets.  
+2. Choose one to learn with.  
+3. Look at codebook and examine variables.  
+4. Choose 5-10 variables for further analysis.
+5. Develop research questions.
+6. Conduct literaure review.

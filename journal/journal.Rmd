@@ -37,3 +37,17 @@ A sample should be like a nice slice of prime rib, rather than just a collection
 4. Choose 5-10 variables for further analysis.
 5. Develop research questions.
 6. Conduct literaure review.
+
+### Entry 3
+
+A survey that reaches a population is a census. 
+
+Surveys only survy a portion of the population.
+
+Representative samples are important. 
+
+Some headlines are misleading. How does one vairable affect the situation?
+
+Look at variables and see them for what they really are.
+
+Experiment vs obvesational studies. Experiments need many variables to be controlled. 

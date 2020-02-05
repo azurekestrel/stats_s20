@@ -11,6 +11,7 @@ output:
   pdf_document: default
 ---
 
+
 ## Topic area statement: 
 
 
@@ -66,14 +67,17 @@ The following questions are to assess your understanding of our first two weeks'
     + Identify the explanatory and response variables.
 
 \
-
 10. **Drinking Age** A biased sampling situation is described for the following study;  
 
     To estimate the proportion of Americans who support changing the drinking age from 21 to 18, a random sample of 100 college students are asked the question, “Would you support a measure to lower the drinking age from 21 to 18?”  
     
     + What is the sample?
+      +The 100 college students.
     + What is the researcher's population of interest?
+      + College students.
     + To what population we can generalize to, (for our given sample)?
+      +That the students would be more inclined to say yes as they are all college students. 
+
 
 
     

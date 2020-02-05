@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 <meta name="author" content="Your Name" />
@@ -1306,7 +1306,22 @@ h6 {
 }
 </style>
 
-<style type="text/css">a:link {color: #c35300;}a:visited {color: #71a62a;}a:hover {color: #ff903f;}h2 {color: #006600;}h4 {font-weight: bold;color: #5A6056;}</style>
+<style type="text/css">a:link {
+color: #c35300;
+}
+a:visited {
+color: #71a62a;
+}
+a:hover {
+color: #ff903f;
+}
+h2 {
+color: #006600;
+}
+h4 {
+font-weight: bold;
+color: #5A6056;
+}</style>
 
 
 
@@ -1322,7 +1337,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -1384,6 +1398,7 @@ summary {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -1396,48 +1411,9 @@ summary {
 }
 </style>
 
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
 <!-- code folding -->
 
 
-
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <style type="text/css">
 
@@ -1451,6 +1427,12 @@ $(document).ready(function ()  {
 }
 }
 
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
 
 .toc-content {
   padding-left: 30px;
@@ -1553,6 +1535,42 @@ div.tocify {
 <div id="refinement-of-your-research-questions" class="section level2">
 <h2>Refinement of your Research Questions</h2>
 </div>
+<div id="formative-assessment-statistics-concepts" class="section level2">
+<h2>Formative assessment: Statistics Concepts</h2>
+<p>The following questions are to assess your understanding of our first two weeks’ statistical topics.</p>
+<ol start="8" style="list-style-type: decimal">
+<li><p><strong>Infections Can Lower IQ</strong> A headline in June 2015 proclaims “Infections can lower IQ.” The headline is based on a study in which scientists gave an IQ test to Danish men at age 19. They also analyzed the hospital records of the men and found that 35% of them had been in a hospital with an infection such as an STI or a urinary tract infection. The average IQ score was lower for the men who had an infection than for the men who hadn’t.</p>
+<ul>
+<li>What are the cases in this study?</li>
+<li>What is the explanatory variable? Is it categorical or quantitative?</li>
+<li>What is the response variable? Is it categorical or quantitative?</li>
+<li>Does the headline imply causation?</li>
+<li>Is the study an experiment or an observational study?</li>
+<li>Is it appropriate to conclude causation in this case?</li>
+</ul></li>
+</ol>
+<p><br />
+</p>
+<ol start="9" style="list-style-type: decimal">
+<li><p><strong>Hormones and Fish Fertility</strong> When women take birth control pills, some of the hormones found in the pills eventually make their way into lakes and waterways. In one study, a water sample was taken from various lakes. The data indicate that as the concentration of estrogen in the lake water goes up, the fertility level of fish in the lake goes down. The estrogen level is measured in parts per trillion (ppt) and the fertility level is recorded as the percent of eggs fertilized.</p>
+<ul>
+<li>What are the cases in this study?</li>
+<li>What are the variables?</li>
+<li>Classify each variable as either categorical or quantitative.</li>
+<li>Identify the explanatory and response variables.</li>
+</ul></li>
+</ol>
+<p><br />
+10. <strong>Drinking Age</strong> A biased sampling situation is described for the following study;</p>
+<pre><code>To estimate the proportion of Americans who support changing the drinking age from 21 to 18, a random sample of 100 college students are asked the question, “Would you support a measure to lower the drinking age from 21 to 18?”  
+
++ What is the sample?
+  +The 100 college students.
++ What is the researcher's population of interest?
+  + College students.
++ To what population we can generalize to, (for our given sample)?
+  +That the students would be more inclined to say yes as they are all college students. </code></pre>
+</div>
 
 
 
@@ -1572,6 +1590,49 @@ $(document).ready(function () {
 });
 
 
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
 </script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->

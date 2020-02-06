@@ -22,6 +22,7 @@ To put the snips (images) in this document.
 
 First upload the images to the `hw` folder. 
 Then follow the example shown below
+![](firstyearofservice.png)
 ![](rankpart1.png)
 ![](rankpart2.png)
 ![](numberoffirefights.png)
@@ -33,6 +34,8 @@ Then follow the example shown below
 What is the relationship between highest rank attained and the number of firefights involved in?
 
 Does spending more time in a combat zone have a relationship to having a higer rank?
+
+Is there a spike in joining the military and American involvement in military conflicts?
 
 ## Literature review - Three Articles
 

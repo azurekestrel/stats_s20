@@ -1,6 +1,6 @@
 ---
 title: "HW02 - Formulating a research question"
-author: "Your Name"
+author: "Henry Lin"
 output:
   html_document:
     theme: sandstone
@@ -14,6 +14,21 @@ output:
 
 ## Topic area statement: 
 
+To assess whether or not more satisfied workers mean more hours spent with families and wheter or not it fills their needs. 
+
+![](shiftworked.png)
+
+![](leavecause1.png)
+
+![](leavecause2.png)
+
+![](jobsatisfaction.png)
+
+![](currentactivity.png)
+
+![](familyandwork.png)
+
+![](familyhourswanted.png)
 
 
 ## Personal Codebook: 
@@ -22,20 +37,12 @@ To put the snips (images) in this document.
 
 First upload the images to the `hw` folder. 
 Then follow the example shown below
-![](firstyearofservice.png)
-![](rankpart1.png)
-![](rankpart2.png)
-![](numberoffirefights.png)
-![](killsincombat.png)
-![](yearsincombatzone.png)
+
+
 
 ## Draft of a few Research Questions
 
-What is the relationship between highest rank attained and the number of firefights involved in?
-
-Does spending more time in a combat zone have a relationship to having a higher rank?h
-
-Is there a spike in joining the military and American involvement in military conflicts?
+How much does work interefere with family time and are working people feeling satisfied with the amount of family time they currently have?
 
 ## Literature review - Three Articles
 

@@ -1,6 +1,6 @@
 ---
 title: "Week Three Assignment - Data Preparation"
-author: "your name here"
+author: "Henry Lin"
 output:
   html_document:
     theme: sandstone

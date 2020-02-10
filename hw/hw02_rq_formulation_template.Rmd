@@ -14,7 +14,9 @@ output:
 
 ## Topic area statement: 
 
-To assess whether or not more satisfied workers mean more hours spent with families and wheter or not it fills their needs. 
+To assess whether or not more satisfied workers mean more hours spent with families and wheter or not it fills their needs. To see if there is an interaction with working time and quality of life. 
+
+The data is from Add Health.
 
 ![](shiftworked.png)
 
@@ -37,7 +39,6 @@ To put the snips (images) in this document.
 
 First upload the images to the `hw` folder. 
 Then follow the example shown below
-
 
 
 ## Draft of a few Research Questions
@@ -66,17 +67,19 @@ The following questions are to assess your understanding of our first two weeks'
 8.  **Infections Can Lower IQ** A headline in June 2015 proclaims “Infections can lower IQ.” The headline is based on a study in which scientists gave an IQ test to Danish men at age 19. They also analyzed the hospital records of the men and found that 35% of them had been in a hospital with an infection such as an STI or a urinary tract infection. The average IQ score was lower for the men who had an infection than for the men who hadn’t.  
 
     + What are the cases in this study?
-      + The kids in question. 
+      + The people that are the suject of the study. (19 y/o Danish men)
     + What is the explanatory variable? Is it categorical or quantitative?
-      + Spank or no spank. Categorical.
+      + IQ score. Numerical.
     + What is the response variable? Is it categorical or quantitative?
-      + Response is the score in the IQ test. It is quantatative.
+      + Is there an infection? Categorical.
     + Does the headline imply causation?
       + Never did, does, will.
     + Is the study an experiment or an observational study?
-     + Obversation study.
+     + Obversational study.
     + Is it appropriate to conclude causation in this case?
-      + No, not at all.
+      + No, not at all. As it is an observation studies the relationship between the infection and IQ score but does not allow for the assumption of causation. 
+    + Is it appropriate to generalize these results to all Danish men age 19?
+      + If it were a random sample, it would be. However, as there is no information provided as to how the sample was chosen, we should not generalize the results. 
 
 \
 
@@ -96,11 +99,11 @@ The following questions are to assess your understanding of our first two weeks'
     To estimate the proportion of Americans who support changing the drinking age from 21 to 18, a random sample of 100 college students are asked the question, “Would you support a measure to lower the drinking age from 21 to 18?”  
     
     + What is the sample?
-      +The 100 college students.
+      +The  afforementioned 100 college students.
     + What is the researcher's population of interest?
-      + College students.
+      + American public.
     + To what population we can generalize to, (for our given sample)?
-      +That the students would be more inclined to say yes as they are all college students. 
+      + College students as it is only college students.
 
 
 

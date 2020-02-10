@@ -12,20 +12,20 @@ knitr::opts_chunk$set(echo = TRUE)
 
 As people will interact with the same events differently and with varying results, it is important to have understanding that some people are just inherently not capable of certain actions or meeting certain requirements. Due to such a limitation, it is important to at least be able to grasp the larger concepts and the details pertinent to the immediate fulfilling of the tasks of hand at the very minimum. 
 
-Refleciton may also mean that there is a requirement to assess how pertinenet certain actions or information may to be the the greater strategic learning of a specific field. As such, there are certain important questions to be asked. Including, but not limited to:
+Reflection may also mean that there is a requirement to assess how pertinent certain actions or information may to be the the greater strategic learning of a specific field. As such, there are certain important questions to be asked. Including, but not limited to:
   
   * What is the point of this object and how does it fall within the greater scenes of your own learning and actions?  
     + If it does, is one able to interface with it well?
-  * What are potential problems with the objects that one may enocounter while interfacing with it? Biases? Language?
+  * What are potential problems with the objects that one may encounter while interfacing with it? Biases? Language?
   * Has there been a consideration for context? People say the Spanish Inquisition was cruel, but by the standards then, it was incredibly humane. 
 
-In other words, where does something fall within the strategic goals, what are it's and our strenths and weaknesses, and how can it be utilized?
+In other words, where does something fall within the strategic goals, what are it's and our strengths and weaknesses, and how can it be utilized?
 
 ### Entry 2
 
 Three words that come to mind when asked about sampling. 
 
-Proporortion. Population. Relativity.
+Proportion. Population. Relativity.
 
 What makes for an effective sample? What size should a sample be? How do we minimize or even avoid sampling bias?
 
@@ -33,21 +33,25 @@ A sample should be like a nice slice of prime rib, rather than just a collection
 
 1. Get familiar with data sets.  
 2. Choose one to learn with.  
-3. Look at codebook and examine variables.  
+3. Look at code book and examine variables.  
 4. Choose 5-10 variables for further analysis.
 5. Develop research questions.
-6. Conduct literaure review.
+6. Conduct literature review.
 
 ### Entry 3
 
 A survey that reaches a population is a census. 
 
-Surveys only survy a portion of the population.
+Surveys only survey a portion of the population.
 
 Representative samples are important. 
 
-Some headlines are misleading. How does one vairable affect the situation?
+Some headlines are misleading. How does one variable affect the situation?
 
 Look at variables and see them for what they really are.
 
-Experiment vs obvesational studies. Experiments need many variables to be controlled. 
+Experiment vs observational studies. Experiments need many variables to be controlled. 
+
+### Entry 4
+
+Variables in column headings. Rows are observed cases. Organizing data is important. 

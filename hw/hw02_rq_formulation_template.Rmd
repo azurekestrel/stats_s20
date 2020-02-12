@@ -16,7 +16,7 @@ output:
 
 To assess whether or not more satisfied workers mean more hours spent with families and wheter or not it fills their needs. To see if there is an interaction with working time and quality of life. 
 
-The data is from Add Health.
+The data is from AddHealth.
 
 ![](shiftworked.png)
 

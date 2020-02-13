@@ -31,7 +31,7 @@ The data is from AddHealth.
 ![](familyandwork.png)
 
 ![](familyhourswanted.png)
-
+![](hours_worked.png)
 
 ## Personal Codebook: 
 

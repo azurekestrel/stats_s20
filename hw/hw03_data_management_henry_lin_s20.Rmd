@@ -33,7 +33,7 @@ load("/cloud/project/data/addhealth4.RData")
 ## New data frame with selected variables 
 ```{r}
 mydata <- addhealth4 %>% 
-  select(H4LM20, H4LM17, H4LM26, H4LM14, H4LM28, H4LM30)
+  select(H4LM20, H4LM17, H4LM26, H4LM14, H4LM28, H4LM30, H4LM19)
 ```
 
 
@@ -68,15 +68,78 @@ mydata_c <- mydata %>%
                                 "7"="pregnancy or family reasons",
                                 "8"="return to school",
                                 "9"="quit to look for another job",
+                                "10"="quit to take another job",
+                                "11"="retired",
+                                "12"="military service",
+                                "13"="incarceration",
+                                "14"="other",
                                 "96"="refused",
                                 "97"="legitimate skip",
+                                "98"="don't know",
                                 .ordered=T))
 ```
 
-
 ### Variable 3
+```{r}
+mydata_c <- mydata %>%
+  mutate(seperation_cause = recode_factor(H4LM26,
+                                "1"="extremely satisfied",
+                                "2"="satisfied",
+                                "3"="neither satisfied nor dissatisfied",
+                                "4"="dissatisfied",
+                                "5"="extremely dissatisfied",
+                                "96"="refused",  
+                                "97"="legitimate skip",
+                                "98"="don't know",
+                                .ordered=T))                                          
+```
 
 ### Variable 4
+```{r}
+mydata_c <- mydata %>%
+  mutate(current_status = recode_factor(H4LM14,
+                                "1"="only temporarily laid off",
+                                "2"="on sick leave or temporarily disabled",
+                                "3"="on maternity/paternity leave",
+                                "4"="permanently disabled",
+                                "5"="unemployed and looking for work",
+                                "6"="unemployed and looking for work",
+                                "7"="student",
+                                "8"="keeping house",
+                                "9"="retired",
+                                "10"="other",
+                                "96"="refused",  
+                                "97"="legitimate skip",
+                                .ordered=T))    
+```
+
+### Variable 5
+```{r}
+mydata_c <- mydata %>% 
+  mutate(time_of_day_worked = recode_factor(H4LM28,
+                                "1"="strongly agree",
+                                "2"="agree",
+                                "3"="neither agree or disagree",
+                                "4"="disagree",
+                                "5"="strongly disagree",
+                                "96"="refused",
+                                "98"="don't know",
+                                .ordered=T))
+```
+
+### Variable 6
+```{r}
+mydata_c <- mydata %>%
+  mutate(work_impact_family_time = recode_factor(H4LM30,
+                                                 "1"="frequently",
+                                                 "2"="sometimes",
+                                                 "3"="rarely",
+                                                 "4"="never",
+                                                 "6"="refused",
+                                                 "7"="legitimate skip",
+                                                 "8"="don't know",
+                                                 .ordered=T))
+```
 
 ## Cleaned data frame
 
@@ -94,18 +157,13 @@ save(clean, file="/cloud/project/data/addhealth_clean.Rdata")
 glimpse(mydata)
 ```
 
-```{r}
-mydata_c %>%
-  select(H4LM20, time_of_day_worked)
-```
-
 ## Table of variables
 
 Original Variable (from addhealth)  |   New Variable  |    Description (from addhealth)
 -------------------|-----------------|------------------
 H4LM20 | time_of-day_worked | Which one of these categories best describes the hours you (work/worked) at this job?
-H4LM17 | seperation_cause | What is the main reason you left your most recent job?
+H4LM17 | separation_cause | What is the main reason you left your most recent job?
 H4LM26 | job_satisfaction | How satisfied (are/were) you with this job?
 H4LM14 | current_status | Which one of the following categories best describes what you're doing now?
-H4LM28 | family_imact_on_work | Indicate how much you would agree or disagree with this statement: Family responsibilities have interefered with my ability to work.
+H4LM28 | family_impact_on_work | Indicate how much you would agree or disagree with this statement: Family responsibilities have interfered with my ability to work.
 H4LM30 | work_impact_family_time | (In the past 12 months/Since you started your current job/In the last year of your most recent job), how often on your primary job (have you spent/have you spent/did you spend) less time with your family than you wanted to because of work responsibilities?

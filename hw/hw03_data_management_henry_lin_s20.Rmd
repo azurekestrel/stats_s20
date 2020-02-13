@@ -26,22 +26,53 @@ library(janitor)
 ## Load in original data 
 Load in your raw data file - with `load` command for the `addhealth4` data
 ```{r}
-#load("/cloud/project/data/addhealth4.RData")
+load("/cloud/project/data/addhealth4.RData")
 ```
 
 
 ## New data frame with selected variables 
 ```{r}
-#mydata <- addhealth4 %>% 
-  #select(RACE, BIO_SEX4, iyear4, h4od1y , H4GH1, H4GH7, H4GH8, H4MH2, H4MH7, H4MH9, H4MH22, H4MH23, H4MH24, H4MH25, H4DA11 )
+mydata <- addhealth4 %>% 
+  select(H4LM20, H4LM17, H4LM26, H4LM14, H4LM28, H4LM30)
 ```
 
 
 ## Recoding of variables
 
 ### Variable 1
+```{r}
+mydata_c <- mydata %>% 
+  mutate(time_of_day_worked = recode_factor(H4LM20,
+                                "1"="regular day shift",
+                                "2"="regular evening shift",
+                                "3"="regular night shift",
+                                "4"="shift rotates that is, it(changes/changed) periodically from day to evening or night",
+                                "5"="split shift that is, it (consists/consisted) of two distinct periods each day",
+                                "6"="irregular schedule or hours",
+                                "7"="other",
+                                "96"="refused",
+                                "97"="legitimate skip",
+                                .ordered=T))
+```
 
 ### Variable 2
+```{r}
+mydata_c <- mydata %>% 
+  mutate(seperation_cause = recode_factor(H4LM17,
+                                "1"="layoff",
+                                "2"="plant closed",
+                                "3"="end of temporary or seasonal job",
+                                "4"="discharged or fired",
+                                "5"="program ended",
+                                "6"="health problems",
+                                "7"="pregnancy or family reasons",
+                                "8"="return to school",
+                                "9"="quit to look for another job",
+                                "96"="refused",
+                                "97"="legitimate skip",
+                                .ordered=T))
+```
+
 
 ### Variable 3
 
@@ -51,25 +82,30 @@ Load in your raw data file - with `load` command for the `addhealth4` data
 
 **Step 1** : Select only the variables that you want to keep, so you only have the version of the variables that you want in your data frame.
 ```{r}
-#clean <- mydata_c %>% select(race_c, BIO_SEX4, iyear4, h4od1y , H4GH1, H4GH7, H4GH8, H4MH2, H4MH7, H4MH9, H4MH22, H4MH23, H4MH24, H4MH25, vigorous_activity)
-```
-
-Alternative Approach to Step 1: You can also use `select` to remove variable with the `-variable`
-```{r}
-#clean <- mydata_c %>% select(-RACE, -H4DA11)
+clean <- mydata_c %>% select(H4LM20, H4LM17, H4LM26, H4LM14, H4LM28, H4LM30)
 ```
 
 **Step 2**: Save the resulting data set to your `data` folder as `datasetname_clean.Rdata` e.g. `addhealth_clean.Rdata`. 
 ```{r}
-#save(clean, file="/cloud/project/data/myaddhealth_clean.Rdata")
+save(clean, file="/cloud/project/data/addhealth_clean.Rdata")
 ```
 
+```{r}
+glimpse(mydata)
+```
 
+```{r}
+mydata_c %>%
+  select(H4LM20, time_of_day_worked)
+```
 
 ## Table of variables
 
-Original Variable  |   New Variable  |    Description
+Original Variable (from addhealth)  |   New Variable  |    Description (from addhealth)
 -------------------|-----------------|------------------
-addhealthvar  |  my_addhealthvar  | description (from addhealth)
-
-
+H4LM20 | time_of-day_worked | Which one of these categories best describes the hours you (work/worked) at this job?
+H4LM17 | seperation_cause | What is the main reason you left your most recent job?
+H4LM26 | job_satisfaction | How satisfied (are/were) you with this job?
+H4LM14 | current_status | Which one of the following categories best describes what you're doing now?
+H4LM28 | family_imact_on_work | Indicate how much you would agree or disagree with this statement: Family responsibilities have interefered with my ability to work.
+H4LM30 | work_impact_family_time | (In the past 12 months/Since you started your current job/In the last year of your most recent job), how often on your primary job (have you spent/have you spent/did you spend) less time with your family than you wanted to because of work responsibilities?

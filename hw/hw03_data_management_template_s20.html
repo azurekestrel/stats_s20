@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Henry Lin" />
+<meta name="author" content="your name here" />
 
 
 <title>Week Three Assignment - Data Preparation</title>
@@ -1594,7 +1594,7 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">Week Three Assignment - Data Preparation</h1>
-<h4 class="author">Henry Lin</h4>
+<h4 class="author">your name here</h4>
 
 </div>
 
@@ -1608,44 +1608,20 @@ div.tocify {
 <div id="load-in-original-data" class="section level2">
 <h2>Load in original data</h2>
 <p>Load in your raw data file - with <code>load</code> command for the <code>addhealth4</code> data</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">load</span>(<span class="st">&quot;/cloud/project/data/addhealth4.RData&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">#load(&quot;/cloud/project/data/addhealth4.RData&quot;)</span></a></code></pre></div>
 </div>
 <div id="new-data-frame-with-selected-variables" class="section level2">
 <h2>New data frame with selected variables</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">mydata &lt;-<span class="st"> </span>addhealth4 <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(H4LM20, H4LM17, H4LM26, H4LM14, H4LM28, H4LM30)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">#mydata &lt;- addhealth4 %&gt;% </span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">  <span class="co">#select(RACE, BIO_SEX4, iyear4, h4od1y , H4GH1, H4GH7, H4GH8, H4MH2, H4MH7, H4MH9, H4MH22, H4MH23, H4MH24, H4MH25, H4DA11 )</span></a></code></pre></div>
 </div>
 <div id="recoding-of-variables" class="section level2">
 <h2>Recoding of variables</h2>
 <div id="variable-1" class="section level3">
 <h3>Variable 1</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">mydata_c &lt;-<span class="st"> </span>mydata <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">time_of_day_worked =</span> <span class="kw">recode_factor</span>(H4LM20,</a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">                                <span class="st">&quot;1&quot;</span>=<span class="st">&quot;regular day shift&quot;</span>,</a>
-<a class="sourceLine" id="cb4-4" data-line-number="4">                                <span class="st">&quot;2&quot;</span>=<span class="st">&quot;regular evening shift&quot;</span>,</a>
-<a class="sourceLine" id="cb4-5" data-line-number="5">                                <span class="st">&quot;3&quot;</span>=<span class="st">&quot;regular night shift&quot;</span>,</a>
-<a class="sourceLine" id="cb4-6" data-line-number="6">                                <span class="st">&quot;4&quot;</span>=<span class="st">&quot;shift rotates that is, it(changes/changed) periodically from day to evening or night&quot;</span>,</a>
-<a class="sourceLine" id="cb4-7" data-line-number="7">                                <span class="st">&quot;5&quot;</span>=<span class="st">&quot;split shift that is, it (consists/consisted) of two distinct periods each day&quot;</span>,</a>
-<a class="sourceLine" id="cb4-8" data-line-number="8">                                <span class="st">&quot;6&quot;</span>=<span class="st">&quot;irregular schedule or hours&quot;</span>,</a>
-<a class="sourceLine" id="cb4-9" data-line-number="9">                                <span class="st">&quot;7&quot;</span>=<span class="st">&quot;other&quot;</span>,</a>
-<a class="sourceLine" id="cb4-10" data-line-number="10">                                <span class="st">&quot;96&quot;</span>=<span class="st">&quot;refused&quot;</span>,</a>
-<a class="sourceLine" id="cb4-11" data-line-number="11">                                <span class="st">&quot;97&quot;</span>=<span class="st">&quot;legitimate skip&quot;</span>,</a>
-<a class="sourceLine" id="cb4-12" data-line-number="12">                                <span class="dt">.ordered=</span>T))</a></code></pre></div>
 </div>
 <div id="variable-2" class="section level3">
 <h3>Variable 2</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">mydata_c &lt;-<span class="st"> </span>mydata <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">time_of_day_worked =</span> <span class="kw">recode_factor</span>(H4LM20,</a>
-<a class="sourceLine" id="cb5-3" data-line-number="3">                                <span class="st">&quot;1&quot;</span>=<span class="st">&quot;regular day shift&quot;</span>,</a>
-<a class="sourceLine" id="cb5-4" data-line-number="4">                                <span class="st">&quot;2&quot;</span>=<span class="st">&quot;regular evening shift&quot;</span>,</a>
-<a class="sourceLine" id="cb5-5" data-line-number="5">                                <span class="st">&quot;3&quot;</span>=<span class="st">&quot;regular night shift&quot;</span>,</a>
-<a class="sourceLine" id="cb5-6" data-line-number="6">                                <span class="st">&quot;4&quot;</span>=<span class="st">&quot;shift rotates that is, it(changes/changed) periodically from day to evening or night&quot;</span>,</a>
-<a class="sourceLine" id="cb5-7" data-line-number="7">                                <span class="st">&quot;5&quot;</span>=<span class="st">&quot;split shift that is, it (consists/consisted) of two distinct periods each day&quot;</span>,</a>
-<a class="sourceLine" id="cb5-8" data-line-number="8">                                <span class="st">&quot;6&quot;</span>=<span class="st">&quot;irregular schedule or hours&quot;</span>,</a>
-<a class="sourceLine" id="cb5-9" data-line-number="9">                                <span class="st">&quot;7&quot;</span>=<span class="st">&quot;other&quot;</span>,</a>
-<a class="sourceLine" id="cb5-10" data-line-number="10">                                <span class="st">&quot;96&quot;</span>=<span class="st">&quot;refused&quot;</span>,</a>
-<a class="sourceLine" id="cb5-11" data-line-number="11">                                <span class="st">&quot;97&quot;</span>=<span class="st">&quot;legitimate skip&quot;</span>,</a>
-<a class="sourceLine" id="cb5-12" data-line-number="12">                                <span class="dt">.ordered=</span>T))</a></code></pre></div>
 </div>
 <div id="variable-3" class="section level3">
 <h3>Variable 3</h3>
@@ -1657,80 +1633,27 @@ div.tocify {
 <div id="cleaned-data-frame" class="section level2">
 <h2>Cleaned data frame</h2>
 <p><strong>Step 1</strong> : Select only the variables that you want to keep, so you only have the version of the variables that you want in your data frame.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">clean &lt;-<span class="st"> </span>mydata_c <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(H4LM20, H4LM17, H4LM26, H4LM14, H4LM28, H4LM30)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co">#clean &lt;- mydata_c %&gt;% select(race_c, BIO_SEX4, iyear4, h4od1y , H4GH1, H4GH7, H4GH8, H4MH2, H4MH7, H4MH9, H4MH22, H4MH23, H4MH24, H4MH25, vigorous_activity)</span></a></code></pre></div>
+<p>Alternative Approach to Step 1: You can also use <code>select</code> to remove variable with the <code>-variable</code></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">#clean &lt;- mydata_c %&gt;% select(-RACE, -H4DA11)</span></a></code></pre></div>
 <p><strong>Step 2</strong>: Save the resulting data set to your <code>data</code> folder as <code>datasetname_clean.Rdata</code> e.g. <code>addhealth_clean.Rdata</code>.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">save</span>(clean, <span class="dt">file=</span><span class="st">&quot;/cloud/project/data/addhealth_clean.Rdata&quot;</span>)</a></code></pre></div>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">glimpse</span>(mydata)</a></code></pre></div>
-<pre><code>## Observations: 5,114
-## Variables: 6
-## $ H4LM20 &lt;dbl&gt; 4, 3, 1, 3, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 4,…
-## $ H4LM17 &lt;dbl&gt; 7, 97, 97, 97, 97, 97, 97, 97, 97, 4, 97, 3, 97, 97, 97, 97, 9…
-## $ H4LM26 &lt;dbl&gt; 2, 4, 2, 1, 2, 3, 2, 2, 2, 3, 2, 2, 2, 1, 3, 1, 2, 2, 2, 3, 3,…
-## $ H4LM14 &lt;dbl&gt; 8, 10, 97, 97, 97, 97, 97, 97, 97, 97, 97, 8, 97, 97, 97, 97, …
-## $ H4LM28 &lt;dbl&gt; 1, 4, 5, 5, 4, 3, 3, 3, 5, 4, 4, 2, 5, 5, 3, 2, 5, 1, 4, 5, 4,…
-## $ H4LM30 &lt;dbl&gt; 1, 4, 4, 4, 2, 3, 4, 4, 2, 4, 2, 1, 4, 4, 3, 3, 4, 1, 2, 4, 2,…</code></pre>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">mydata_c <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(H4LM20, time_of_day_worked)</a></code></pre></div>
-<pre><code>## # A tibble: 5,114 x 2
-##    H4LM20 time_of_day_worked                                                    
-##     &lt;dbl&gt; &lt;ord&gt;                                                                 
-##  1      4 shift rotates that is, it(changes/changed) periodically from day to e…
-##  2      3 regular night shift                                                   
-##  3      1 regular day shift                                                     
-##  4      3 regular night shift                                                   
-##  5      1 regular day shift                                                     
-##  6      1 regular day shift                                                     
-##  7      1 regular day shift                                                     
-##  8      1 regular day shift                                                     
-##  9      1 regular day shift                                                     
-## 10      2 regular evening shift                                                 
-## # … with 5,104 more rows</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co">#save(clean, file=&quot;/cloud/project/data/myaddhealth_clean.Rdata&quot;)</span></a></code></pre></div>
 </div>
 <div id="table-of-variables" class="section level2">
 <h2>Table of variables</h2>
 <table>
-<colgroup>
-<col width="35%"></col>
-<col width="31%"></col>
-<col width="33%"></col>
-</colgroup>
 <thead>
 <tr class="header">
-<th>Original Variable (from addhealth)</th>
+<th>Original Variable</th>
 <th>New Variable</th>
-<th>Description (from addhealth)</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>H4LM20</td>
-<td>time_of-day_worked</td>
-<td>Which one of these categories best describes the hours you (work/worked) at this job?</td>
-</tr>
-<tr class="even">
-<td>H4LM17</td>
-<td>seperation_cause</td>
-<td>What is the main reason you left your most recent job?</td>
-</tr>
-<tr class="odd">
-<td>H4LM26</td>
-<td>job_satisfaction</td>
-<td>How satisfied (are/were) you with this job?</td>
-</tr>
-<tr class="even">
-<td>H4LM14</td>
-<td>current_status</td>
-<td>Which one of the following categories best describes what you’re doing now?</td>
-</tr>
-<tr class="odd">
-<td>H4LM28</td>
-<td>family_imact_on_work</td>
-<td>Indicate how much you would agree or disagree with this statement: Family responsibilities have interefered with my ability to work.</td>
-</tr>
-<tr class="even">
-<td>H4LM30</td>
-<td>work_impact_family_time</td>
-<td>(In the past 12 months/Since you started your current job/In the last year of your most recent job), how often on your primary job (have you spent/have you spent/did you spend) less time with your family than you wanted to because of work responsibilities?</td>
+<td>addhealthvar</td>
+<td>my_addhealthvar</td>
+<td>description (from addhealth)</td>
 </tr>
 </tbody>
 </table>

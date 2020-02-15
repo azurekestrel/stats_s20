@@ -33,15 +33,15 @@ load("/cloud/project/data/addhealth4.RData")
 ## New data frame with selected variables 
 ```{r}
 mydata <- addhealth4 %>% 
-  select(H4LM20, H4LM17, H4LM26, H4LM14, H4LM28, H4LM30, H4LM19)
+  select(H4LM20, H4LM17, H4LM26, H4LM14, H4LM28, H4LM30, H4LM19, H4LM12)
 ```
 
 
 ## Recoding of variables
 
-### Variable 1
+### Variable 1 (Time of Day Worked)
 ```{r}
-mydata_c <- mydata %>% 
+mydata <- mydata %>% 
   mutate(time_of_day_worked = recode_factor(H4LM20,
                                 "1"="regular day shift",
                                 "2"="regular evening shift",
@@ -55,9 +55,9 @@ mydata_c <- mydata %>%
                                 .ordered=T))
 ```
 
-### Variable 2
+### Variable 2 (Sepaeration Cause)
 ```{r}
-mydata_c <- mydata %>% 
+mydata <- mydata %>% 
   mutate(seperation_cause = recode_factor(H4LM17,
                                 "1"="layoff",
                                 "2"="plant closed",
@@ -79,10 +79,10 @@ mydata_c <- mydata %>%
                                 .ordered=T))
 ```
 
-### Variable 3
+### Variable 3 (Job Satisfaction)
 ```{r}
-mydata_c <- mydata %>%
-  mutate(seperation_cause = recode_factor(H4LM26,
+mydata <- mydata %>%
+  mutate(job_satisfaction = recode_factor(H4LM26,
                                 "1"="extremely satisfied",
                                 "2"="satisfied",
                                 "3"="neither satisfied nor dissatisfied",
@@ -94,9 +94,9 @@ mydata_c <- mydata %>%
                                 .ordered=T))                                          
 ```
 
-### Variable 4
+### Variable 4 (What People Are Doing)
 ```{r}
-mydata_c <- mydata %>%
+mydata <- mydata %>%
   mutate(current_status = recode_factor(H4LM14,
                                 "1"="only temporarily laid off",
                                 "2"="on sick leave or temporarily disabled",
@@ -113,10 +113,10 @@ mydata_c <- mydata %>%
                                 .ordered=T))    
 ```
 
-### Variable 5
+### Variable 5 (How Family Impacts Work)
 ```{r}
-mydata_c <- mydata %>% 
-  mutate(time_of_day_worked = recode_factor(H4LM28,
+mydata <- mydata %>% 
+  mutate(family_impact_on_work = recode_factor(H4LM28,
                                 "1"="strongly agree",
                                 "2"="agree",
                                 "3"="neither agree or disagree",
@@ -127,9 +127,9 @@ mydata_c <- mydata %>%
                                 .ordered=T))
 ```
 
-### Variable 6
+### Variable 6 (How Work Impacts Time With Family)
 ```{r}
-mydata_c <- mydata %>%
+mydata <- mydata %>%
   mutate(work_impact_family_time = recode_factor(H4LM30,
                                                  "1"="frequently",
                                                  "2"="sometimes",
@@ -141,11 +141,156 @@ mydata_c <- mydata %>%
                                                  .ordered=T))
 ```
 
+### Variable 7 (Amount of Time Worked)
+```{r}
+mydata <- mydata %>%
+  mutate(time_worked = recode_factor(H4LM19,
+                                     "10"="10 hours",
+                                     "11"="11 hours",
+                                     "12"="12 hours",
+                                     "13"="13 hours",
+                                     "14"="14 hours",
+                                     "15"="15 hours",
+                                     "16"="16 hours",
+                                     "17"="17 hours",
+                                     "18"="18 hours",
+                                     "19"="19 hours",
+                                     "20"="20 hours",
+                                     "21"="21 hours",
+                                     "22"="22 hours",
+                                     "23"="23 hours",
+                                     "24"="24 hours",
+                                     "25"="25 hours",
+                                     "26"="26 hours",
+                                     "27"="27 hours",
+                                     "28"="28 hours",
+                                     "29"="29 hours",
+                                     "30"="30 hours",
+                                     "31"="31 hours", 
+                                     "32"="32 hours",
+                                     "33"="33 hours",
+                                     "34"="34 hours",
+                                     "35"="35 hours",
+                                     "36"="36 hours",
+                                     "37"="37 hours",
+                                     "38"="38 hours",
+                                     "39"="39 hours",
+                                     "40"="40 hours",
+                                     "41"="41 hours",
+                                     "42"="42 hours",
+                                     "43"="43 hours",
+                                     "44"="44 hours",
+                                     "45"="45 hours",
+                                     "46"="46 hours",
+                                     "47"="47 hours",
+                                     "48"="48 hours",
+                                     "49"="49 hours",
+                                     "50"="50 hours",
+                                     "51"="51 hours",
+                                     "52"="52 hours",
+                                     "53"="53 hours",
+                                     "54"="54 hours",
+                                     "55"="55 hours", 
+                                     "56"="56 hours",
+                                     "57"="57 hours",
+                                     "58"="58 hours", 
+                                     "60"="60 hours",
+                                     "62"="62 hours",
+                                     "63"="63 hours", 
+                                     "64"="64 hours",
+                                     "65"="65 hours",
+                                     "66"="66 hours", 
+                                     "68"="68 hours",
+                                     "70"="70 hours",
+                                     "72"="72 hours",
+                                     "74"="74 hours",
+                                     "75"="75 hours",
+                                     "76"="76 hours",
+                                     "80"="80 hours",
+                                     "83"="83 hours",
+                                     "84"="84 hours",
+                                     "85"="85 hours",
+                                     "86"="86 hours",
+                                     "89"="89 hours",
+                                     "90"="90 hours",
+                                     "91"="91 hours",
+                                     "98"="98 hours",
+                                     "100"="100 hours",
+                                     "105"="105 hours",
+                                     "106"="106 hours",
+                                     "108"="108 hours",
+                                     "110"="110 hours",
+                                     "120"="120 hours",
+                                     "996"="refused",
+                                     "997"="legitimate skip",
+                                     "998"="don't know",
+                                     .ordered =T))
+```
+
+### Variable 8 (Number of Jobs)
+```{r}
+mydata <- mydata %>%
+  mutate(number_of_jobs_worked = recode_factor(H4LM12,
+                                     "1"="1 job",
+                                     "2"="2 jobs",
+                                     "3"="3 jobs",
+                                     "4"="4 jobs",
+                                     "5"="5 jobs",
+                                     "6"="6 jobs",
+                                     "7"="7 jobs",
+                                     "12"="12 jobs",
+                                     "97"="legitimate skip",
+                                     "98"="don't know",
+                                     .ordered = T))
+```
+
+```{r}
+mydata %>%
+  tabyl(time_of_day_worked) %>%
+  adorn_pct_formatting(digits=2)
+```
+
+```{r}
+mydata %>%
+  tabyl(job_satisfaction) %>%
+  adorn_pct_formatting(digits = 2)
+```
+
+```{r}
+mydata %>%
+  tabyl(current_status) %>%
+  adorn_pct_formatting(digits = 2)
+```
+
+```{r}
+mydata %>%
+  tabyl(family_impact_on_work) %>%
+  adorn_pct_formatting(digits = 2)
+```
+
+```{r}
+mydata %>%
+  tabyl(work_impact_family_time) %>%
+  adorn_pct_formatting(digits=2)
+```
+
+```{r}
+mydata %>%
+  tabyl(time_worked) %>%
+  adorn_pct_formatting(digits = 2)
+```
+
+```{r}
+mydata %>%
+  tabyl(number_of_jobs_worked) %>% 
+  adorn_pct_formatting(digits=2)
+```
+
 ## Cleaned data frame
 
 **Step 1** : Select only the variables that you want to keep, so you only have the version of the variables that you want in your data frame.
 ```{r}
-clean <- mydata_c %>% select(H4LM20, H4LM17, H4LM26, H4LM14, H4LM28, H4LM30)
+clean <- addhealth4 %>% select(H4LM20, H4LM17, H4LM26, H4LM14, H4LM28, H4LM30, H4LM19, H4LM12)
 ```
 
 **Step 2**: Save the resulting data set to your `data` folder as `datasetname_clean.Rdata` e.g. `addhealth_clean.Rdata`. 
@@ -155,15 +300,18 @@ save(clean, file="/cloud/project/data/addhealth_clean.Rdata")
 
 ```{r}
 glimpse(mydata)
+glimpse(clean)
 ```
 
 ## Table of variables
 
 Original Variable (from addhealth)  |   New Variable  |    Description (from addhealth)
 -------------------|-----------------|------------------
-H4LM20 | time_of-day_worked | Which one of these categories best describes the hours you (work/worked) at this job?
+H4LM20 | time_of_day_worked | Which one of these categories best describes the hours you (work/worked) at this job?
 H4LM17 | separation_cause | What is the main reason you left your most recent job?
 H4LM26 | job_satisfaction | How satisfied (are/were) you with this job?
 H4LM14 | current_status | Which one of the following categories best describes what you're doing now?
 H4LM28 | family_impact_on_work | Indicate how much you would agree or disagree with this statement: Family responsibilities have interfered with my ability to work.
 H4LM30 | work_impact_family_time | (In the past 12 months/Since you started your current job/In the last year of your most recent job), how often on your primary job (have you spent/have you spent/did you spend) less time with your family than you wanted to because of work responsibilities?
+H4LM19 | time_worked | How many hours a week (do/did) you usually work at this job? NOTE: Smallest 5 and largest 5 values are displayed.
+H4LM12 | number_of_jobs_worked | On how many jobs are you currently working for pay at least 10 hours a week?

@@ -142,90 +142,8 @@ mydata <- mydata %>%
 ```
 
 ### Variable 7 (Amount of Time Worked)
-```{r}
-mydata <- mydata %>%
-  mutate(time_worked = recode_factor(H4LM19,
-                                     "10"="10 hours",
-                                     "11"="11 hours",
-                                     "12"="12 hours",
-                                     "13"="13 hours",
-                                     "14"="14 hours",
-                                     "15"="15 hours",
-                                     "16"="16 hours",
-                                     "17"="17 hours",
-                                     "18"="18 hours",
-                                     "19"="19 hours",
-                                     "20"="20 hours",
-                                     "21"="21 hours",
-                                     "22"="22 hours",
-                                     "23"="23 hours",
-                                     "24"="24 hours",
-                                     "25"="25 hours",
-                                     "26"="26 hours",
-                                     "27"="27 hours",
-                                     "28"="28 hours",
-                                     "29"="29 hours",
-                                     "30"="30 hours",
-                                     "31"="31 hours", 
-                                     "32"="32 hours",
-                                     "33"="33 hours",
-                                     "34"="34 hours",
-                                     "35"="35 hours",
-                                     "36"="36 hours",
-                                     "37"="37 hours",
-                                     "38"="38 hours",
-                                     "39"="39 hours",
-                                     "40"="40 hours",
-                                     "41"="41 hours",
-                                     "42"="42 hours",
-                                     "43"="43 hours",
-                                     "44"="44 hours",
-                                     "45"="45 hours",
-                                     "46"="46 hours",
-                                     "47"="47 hours",
-                                     "48"="48 hours",
-                                     "49"="49 hours",
-                                     "50"="50 hours",
-                                     "51"="51 hours",
-                                     "52"="52 hours",
-                                     "53"="53 hours",
-                                     "54"="54 hours",
-                                     "55"="55 hours", 
-                                     "56"="56 hours",
-                                     "57"="57 hours",
-                                     "58"="58 hours", 
-                                     "60"="60 hours",
-                                     "62"="62 hours",
-                                     "63"="63 hours", 
-                                     "64"="64 hours",
-                                     "65"="65 hours",
-                                     "66"="66 hours", 
-                                     "68"="68 hours",
-                                     "70"="70 hours",
-                                     "72"="72 hours",
-                                     "74"="74 hours",
-                                     "75"="75 hours",
-                                     "76"="76 hours",
-                                     "80"="80 hours",
-                                     "83"="83 hours",
-                                     "84"="84 hours",
-                                     "85"="85 hours",
-                                     "86"="86 hours",
-                                     "89"="89 hours",
-                                     "90"="90 hours",
-                                     "91"="91 hours",
-                                     "98"="98 hours",
-                                     "100"="100 hours",
-                                     "105"="105 hours",
-                                     "106"="106 hours",
-                                     "108"="108 hours",
-                                     "110"="110 hours",
-                                     "120"="120 hours",
-                                     "996"="refused",
-                                     "997"="legitimate skip",
-                                     "998"="don't know",
-                                     .ordered =T))
-```
+
+No need to recode.
 
 ### Variable 8 (Number of Jobs)
 ```{r}
@@ -272,12 +190,6 @@ mydata %>%
 mydata %>%
   tabyl(work_impact_family_time) %>%
   adorn_pct_formatting(digits=2)
-```
-
-```{r}
-mydata %>%
-  tabyl(time_worked) %>%
-  adorn_pct_formatting(digits = 2)
 ```
 
 ```{r}

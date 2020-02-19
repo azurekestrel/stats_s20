@@ -1,7 +1,7 @@
 ---
 title: 'HW 1: Introduction to the class'
-author: "Math 159 - HENRY LIN"
-date: "1/28/2020"
+author: "Math 159 - STUDENT NAME"
+date: "Date"
 output:
   html_document:
     theme: sandstone
@@ -18,27 +18,21 @@ output:
 5.  Your **one** observation or question from the videos or podcast.
 
 I listened to the podcast.....
-I noticed that there is indeed some people that will rush to meet whatever the future offers. However, there and plenty that will be more hesitant, if not completely reject it. Although some concerns are justified, there should be even the slightest acknowledgement that the future is coming and the the only reasonable response is to adapt to it when it does. Even if there is a massive dislike of the future, there remains a necessity for people to interface with it when it comes.
-
-Unfortunately, at times, there are people that take it to an extreme degree, that renders them unable to respond to the slightest ripple, even if it is absolutely necessary. Sometimes, it's just the simple belief that what can be done is pointless, leading people to lose hope. However, sometime, biases put people into situations where they are no longer to even slightly acknowledge that there is something very wrong and are comfortable with such a condition.
 
 6.  Your **one** thing that you will attempt to incorporate into your studies this semester.
 
-To better assess and anticipate patterns that will emerge through the semester in an effort to better allocate time and attention.
+I am going to study....
 
 ### Learning Strategies
 7. Answer at least **4** of the following questions from the reading. (please remove unanswered questions)  
 
     + What was the most important insight you gained from the reading? 
-      + That the way high school is run today creates a certain amount of complacency in potential college students.
     + What surprised you most in the reading?
-      + That there are people that think that high school is "free". Never has, is, or will be free.
     + What did you already know?
-      + That although there are some instructors that are legitimately awful, there is a good, if not decent chance that negligence will do a student in as quickly.
+    + Have you been taught how to learn before?  Where?  What did you learn about learning?
+    + What will you do differently during a lecture, if anything, given what you read?
     + How will you prepare differently for exams, given what you read?
-      + More to use technology as a pivot point, rather than as a means to an end. As a pointer to find the right information in the right places.
-    + Can you think of other good learning practices that the reading didn't mention?
-      + That there will be courses that are mandatory but of no interest to the majority of students, such as ethnic studies, that will be imposed as part of graduation requirements and it is ok to not be interested as long as you're honest about it. If people took interest in every single little thing in the situations other people encounter, then we may as well just accecpt all the suffering in the world as our own personal liabilities; which is unreasonable in the first place.
+    + Can you think of other good learning practices that the reading didn't mention?  
 
 ## Part 3 : Statistics 
 
@@ -50,13 +44,10 @@ The following questions are to assess your understanding of our first week's sta
     + What is the explanatory variable? Is it categorical or quantitative?
     + What is the response variable? Is it categorical or quantitative?
     + Does the headline imply causation?
-      + It does to the average reader, but does not actually confirm it, with the keyword can. It merely suggests the probability, which is different from a statement, such as "Long-term smoking and secondhand smoke exposure greatly increases the risk for certain diseases." 
     + Is the study an experiment or an observational study?
-      + It is an observational study.
     + Is it appropriate to conclude causation in this case?
-      + Certainly not. As it only states a correlation. Not causation.
 
-
+\
 9. **Hormones and Fish Fertility** When women take birth control pills, some of the hormones found in the pills eventually make their way into lakes and waterways. In one study, a water sample was taken from various lakes. The data indicate that as the concentration of estrogen in the lake water goes up, the fertility level of fish in the lake goes down. The estrogen level is measured in parts per trillion (ppt) and the fertility level is recorded as the percent of eggs fertilized. 
 
     + What are the cases in this study? 

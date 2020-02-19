@@ -10,13 +10,7 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## Memory Game
-
-This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
-
-## Instructions
+## Memory Game `Instructions
 
 - As I hand out the instructions, keep them face down.
 - When I give you the ok, read the instructions carefully.
@@ -34,6 +28,9 @@ When you click the **Knit** button a document will be generated that includes bo
 - When I give you the ok, answer as many questions as you can.
 - You will have 3 minutes.
 
+## Entry of Score in Google Form
+
+
 ## Nature of the Experiment
 
 - There were 2 different sets of instructions which I randomly assigned to each student
@@ -42,13 +39,45 @@ When you click the **Knit** button a document will be generated that includes bo
 
   >- Instructions B:  For the next few minutes, your task is to LISTEN quietly.   The BEST TECHNIQUE for short term memory recall is to VISUALIZE whatever you hear.  For example, if the teacher says “the red motorcycle was in the barn,” you might picture a red motorcycle in a barn.  ATTEMPT TO VISUALIZE IN YOUR MIND all of the statements the teacher reads! 
 
+## Purpose of the Experiment
+
+What do you suppose is the **research question** that this experiment is attempting to answer?
+
+  >- <div class="red"> The research question is "Do people tend to remember better when they are given instructions to visualize what's being said?" </div>
+
+## Purpose of Random Assignment 
+
+What do you suppose is the purpose of **randomly assigning** the instructions to each subject?
+
+  >- <div class="red"> Random assignment of the treatment is an effort to make the two groups similar. </div>
+
+
 ## Explanatory and Response Variables
 
-  >- What do you suppose are the explanatoy and response variables for this experiment?
+  >- What do you suppose are the explanatory and response variables for this experiment?
   
   >- <div class="red"> Explanatory is which of the instructions you received (A or B)  </div>
   
   >- <div class="red"> Response is your score on the Assessment of Recall </div>
+
+## Causality
+
+Do you think that from this experiment, we will be able to infer **causation**?  (*the instructions were the sole cause of the differences groups' to performance*)
+
+  >- <div class="red"> Since we used random assignment of the subject into the two groups, we should have similar group characteristics.  Therefore the only real difference between the tow groups is the instructions received.  So, any difference in performance can be attributed to the difference in instructions.  </div>
+  
+  >- <div class="red"> We also need to see if there was actually a difference in performance between the groups.  The larger difference the more confident we can be that the treatment is causing a difference in performance. </div>
+  
+## Generalization
+
+Do you think we can **generalize** the conclusion of our experiment to a larger population (*beyond this group of students*) ?
+
+  >- <div class="red"> Our sample was just a convenience sample of students in a statistics course.  (Maybe we generalize to all college students or maybe all people, but this could potentially be an over-generalization ) </div>
+
+
+## Data Analysis
+
+
 
 
 

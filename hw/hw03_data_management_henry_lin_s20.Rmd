@@ -207,7 +207,8 @@ clean <- addhealth4 %>% select(H4LM20, H4LM17, H4LM26, H4LM14, H4LM28, H4LM30, H
 
 **Step 2**: Save the resulting data set to your `data` folder as `datasetname_clean.Rdata` e.g. `addhealth_clean.Rdata`. 
 ```{r}
-save(clean, file="/cloud/project/data/addhealth_clean.Rdata")
+save(clean, file="/cloud/project/data/clean.Rdata")
+save(mydata, file="/cloud/project/data/mydata.Rdata")
 ```
 
 ```{r}

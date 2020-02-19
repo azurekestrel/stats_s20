@@ -1396,22 +1396,7 @@ h6 {
 }
 </style>
 
-<style type="text/css">a:link {
-color: #c35300;
-}
-a:visited {
-color: #71a62a;
-}
-a:hover {
-color: #ff903f;
-}
-h2 {
-color: #006600;
-}
-h4 {
-font-weight: bold;
-color: #5A6056;
-}</style>
+<link href="data:text/css;charset=utf-8,a%3Alink%20%7B%0Acolor%3A%20%23c35300%3B%0A%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%2371a62a%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%23ff903f%3B%0A%7D%0Ah2%20%7B%0Acolor%3A%20%23006600%3B%0A%7D%0Ah4%20%7B%0Afont%2Dweight%3A%20bold%3B%0Acolor%3A%20%235A6056%3B%0A%7D%0Adiv%23note%20%7B%20margin%2Dtop%3A%2030px%3B%0Amargin%2Dbottom%3A%2030px%3B%0Acolor%3A%20rgba%2876%2C%20114%2C%2029%2C%200%2E8%29%3B%0Aborder%3A1px%20solid%20rgba%2876%2C%20114%2C%2029%2C%200%2E2%29%3B%0Apadding%3A%2010px%2010px%3B%0Abackground%3A%20rgba%2876%2C%20114%2C%2029%2C%200%2E1%29%3B%0Aborder%2Dradius%3A%205px%3B%0A%7D%0Adiv%23narrative%20%7B%20margin%2Dtop%3A%2030px%3B%0Amargin%2Dbottom%3A%2030px%3B%0Acolor%3A%20%22black%22%0Aborder%3A1px%20solid%20rgba%2876%2C%20114%2C%2029%2C%200%2E2%29%3B%0Apadding%3A%2010px%2010px%3B%0Abackground%3A%20%23e6f0ff%3B%0Aborder%2Dradius%3A%205px%3B%0A%7D%0A%3Cstyle%3E%0A%2Ecol2%20%7B%0Acolumns%3A%202%20200px%3B%20%0A%2Dwebkit%2Dcolumns%3A%202%20200px%3B%20%0A%2Dmoz%2Dcolumns%3A%202%20200px%3B%20%0A%7D%0A%2Ecol3%20%7B%0Acolumns%3A%203%20100px%3B%0A%2Dwebkit%2Dcolumns%3A%203%20100px%3B%0A%2Dmoz%2Dcolumns%3A%203%20100px%3B%0A%7D%0A%3C%2Fstyle%3E%0A" rel="stylesheet" type="text/css" />
 
 
 
@@ -1831,7 +1816,8 @@ div.tocify {
 <p><strong>Step 1</strong> : Select only the variables that you want to keep, so you only have the version of the variables that you want in your data frame.</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1">clean &lt;-<span class="st"> </span>addhealth4 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(H4LM20, H4LM17, H4LM26, H4LM14, H4LM28, H4LM30, H4LM19, H4LM12)</a></code></pre></div>
 <p><strong>Step 2</strong>: Save the resulting data set to your <code>data</code> folder as <code>datasetname_clean.Rdata</code> e.g. <code>addhealth_clean.Rdata</code>.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="kw">save</span>(clean, <span class="dt">file=</span><span class="st">&quot;/cloud/project/data/addhealth_clean.Rdata&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="kw">save</span>(clean, <span class="dt">file=</span><span class="st">&quot;/cloud/project/data/clean.Rdata&quot;</span>)</a>
+<a class="sourceLine" id="cb24-2" data-line-number="2"><span class="kw">save</span>(mydata, <span class="dt">file=</span><span class="st">&quot;/cloud/project/data/mydata.Rdata&quot;</span>)</a></code></pre></div>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="kw">glimpse</span>(mydata)</a></code></pre></div>
 <pre><code>## Observations: 5,114
 ## Variables: 15

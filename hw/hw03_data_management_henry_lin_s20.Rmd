@@ -43,11 +43,11 @@ mydata <- addhealth4 %>%
 ```{r}
 mydata <- mydata %>% 
   mutate(time_of_day_worked = recode_factor(H4LM20,
-                                "1"="regular day shift",
-                                "2"="regular evening shift",
-                                "3"="regular night shift",
-                                "4"="shift rotates that is, it(changes/changed) periodically from day to evening or night",
-                                "5"="split shift that is, it (consists/consisted) of two distinct periods each day",
+                                "1"="regular day",
+                                "2"="regular evening",
+                                "3"="regular night",
+                                "4"="shift rotates",
+                                "5"="split shift",
                                 "6"="irregular schedule or hours",
                                 "7"="other",
                                 "96"="refused",

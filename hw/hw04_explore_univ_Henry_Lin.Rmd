@@ -13,7 +13,7 @@ output:
 
 
 ```{r set chunk option, echo=F}
-knitr::opts_chunk$set(echo = F, warning=FALSE, message=FALSE, fig.height=4, fig.align='center') #Chunk default settings 
+knitr::opts_chunk$set(echo = T, warning=FALSE, message=FALSE, fig.height=4, fig.align='center') #Chunk default settings 
 ```
 
 ```{r library packages}
@@ -35,28 +35,28 @@ load("/cloud/project/data/clean.Rdata")
 
 # Table of Variables
 
-Original Variable (from addhealth)  |   New Variable  |    Description (from addhealth)
--------------------|-----------------|------------------
-H4LM20 | time_of_day_worked | Which one of these categories best describes the hours you (work/worked) at this job?
-H4LM17 | separation_cause | What is the main reason you left your most recent job?
-H4LM26 | job_satisfaction | How satisfied (are/were) you with this job?
-H4LM14 | current_status | Which one of the following categories best describes what you're doing now?
-H4LM28 | family_impact_on_work | Indicate how much you would agree or disagree with this statement: Family responsibilities have interfered with my ability to work.
-H4LM30 | work_impact_family_time | (In the past 12 months/Since you started your current job/In the last year of your most recent job), how often on your primary job (have you spent/have you spent/did you spend) less time with your family than you wanted to because of work responsibilities?
-H4LM19 | time_worked | How many hours a week (do/did) you usually work at this job?
-H4LM12 | number_of_jobs_worked | On how many jobs are you currently working for pay at least 10 hours a week?
+Original Variable (from addhealth)  |   New Variable  |    Categorical or Numerical  |  Description (from addhealth)    
+-------------------|-----------------|------------------|------------------
+H4LM20 | time_of_day_worked | Categorical | Which one of these categories best describes the hours you (work/worked) at this job?
+H4LM17 | separation_cause | Categorical | What is the main reason you left your most recent job?
+H4LM26 | job_satisfaction | Categorical | How satisfied (are/were) you with this job?
+H4LM14 | current_status | Categorical | Which one of the following categories best describes what you're doing now?
+H4LM28 | family_impact_on_work | Categorical |Indicate how much you would agree or disagree with this statement: Family responsibilities have interfered with my ability to work.
+H4LM30 | work_impact_family_time | Categorical | (In the past 12 months/Since you started your current job/In the last year of your most recent job), how often on your primary job (have you spent/have you spent/did you spend) less time with your family than you wanted to because of work responsibilities?
+H4LM19 | time_worked | Numerical | How many hours a week (do/did) you usually work at this job?
+H4LM12 | number_of_jobs_worked | Numerical | On how many jobs are you currently working for pay at least 10 hours a week?
 
-# Examing categorical variable 
+# Examing categorical variables 
 ## 1st Categorical `time_of_day_worked`
 
 **Numerical Summary Table**  
 
 ```{r summary table cat 1}
-ToD_worked <- mydata %>%
+time_of_day_worked <- mydata %>%
   tabyl(time_of_day_worked) %>%
   adorn_pct_formatting(digits=1) %>%
   adorn_totals() 
-ToD_worked %>% 
+time_of_day_worked %>% 
   kable() %>%
   kable_styling(full_width = F, position="center")
 ```
@@ -67,15 +67,166 @@ ToD_worked %>%
 mydata %>% 
   #filter(time_of_day_worked=="yes" | time_of_day_worked=="no") %>% 
   ggplot(aes(x=time_of_day_worked, y= ..prop.., group=1))+
-  geom_bar(fill="steelblue", width=0.)5+
+  geom_bar(fill="steelblue", width=0.5)+
   ggtitle("Which one of these categories best describes the hours you (work/worked) at this job?") +
   xlab("subject's response")
 ```
 
 **Narrative summary**  
 <div id = "narrative">
-The participants in the **addhealth** study were asked, "*Which one of these categories best describes the hours you (work/worked) at this job?*" **5027** out of **5114** provided a response as to which hours they work, with the options being "regular day shift", "regular evening shift", "regular night shift", "shift rotates", split shift", "irregular schedule or hours", or "other" with approximately **65%** of the participants responding **regular day shift**.  Approximately **2 out of 3** participants work day shifts.
+The participants in the **addhealth** study were asked, "*Which one of these categories best describes the hours you (work/worked) at this job?*" **5027** out of **5114** provided a response as to which hours they work, with the options being "regular day shift", "regular evening shift", "regular night shift", "shift rotates", split shift", "irregular schedule or hours", or "otheir" with approximately **65%** of the participants responding **regular day shift**.  Approximately **2 out of 3** participants work day shifts.
 </div>
+
+## 2nd Categorical `separation_cause`
+
+**Numerical Summary Table**  
+
+```{r summary table cat 2}
+separation_cause <- mydata %>%
+  tabyl(separation_cause) %>%
+  adorn_pct_formatting(digits=1) %>%
+  adorn_totals() 
+separation_cause %>% 
+  kable() %>%
+  kable_styling(full_width = F, position="center")
+```
+
+**Bar Plot - Frequency of Levels**
+
+```{r bar plot cat 2}
+mydata %>% 
+  #filter(separation_cause=="yes" | separation_cause=="no") %>% 
+  ggplot(aes(x=separation_cause, y= ..prop.., group=1))+
+  geom_bar(fill="steelblue", width=0.5)+
+  ggtitle("What is the main reason you left your most recent job?") +
+  xlab("subject's response")
+```
+
+**Narrative summary**  
+<div id = "narrative">
+The participants in the **addhealth** study were asked, "*What is the main reason you left your most recent job?*" **763** out of **764** provided a response as to why they left their job, with the options being "layoff", "plant closed", "end of temporary or seasonal job", "discharged or fired", "program ended" "health problems", "preganacy or family resons", "return to school", "quit to look for anotheir job", "retired", "military service", "incarceration", or "otheir", with approximately **20%** of the participants responding **pregnancy or family reasons**.  Approximately **1 out of 5** participants left their job due to pregnancy or family reasons.
+</div>
+
+## 3rd Categorical `job_satisfaction`
+
+**Numerical Summary Table**  
+
+```{r summary table cat 3}
+job_satisfaction <- mydata %>%
+  tabyl(job_satisfaction) %>%
+  adorn_pct_formatting(digits=1) %>%
+  adorn_totals() 
+job_satisfaction %>% 
+  kable() %>%
+  kable_styling(full_width = F, position="center")
+```
+
+
+**Bar Plot - Frequency of Levels**
+
+```{r bar plot cat 3}
+mydata %>% 
+  #filter(job_satisfaction=="yes" | job_satisfaction=="no") %>% 
+  ggplot(aes(x=job_satisfaction, y= ..prop.., group=1))+
+  geom_bar(fill="steelblue", width=0.5)+
+  ggtitle("How satisfied (are/were) you with this job?") +
+  xlab("subject's response")
+```
+
+**Narrative summary**  
+<div id = "narrative">
+The participants in the **addhealth** study were asked, "*How satisfied (are/were) you with this job?*" **5024** out of **5027** provided a response as to their job satisfaction, with the options being "extremely satisfied", "satisfied", "neitheir satisfied nor dissatisfied", "dissatisfied", or "extremely dissatisfied", with approximately **75%** of the participants responding **satisfied or higher**.  Approximately **3 out of 4** participants were at least satisfied with their work.
+</div>
+
+## 4th Categorical `current_status`
+
+**Numerical Summary Table**  
+
+```{r summary table cat 4}
+current_status <- mydata %>%
+  tabyl(current_status) %>%
+  adorn_pct_formatting(digits=1) %>%
+  adorn_totals() 
+current_status %>% 
+  kable() %>%
+  kable_styling(full_width = F, position="center")
+```
+
+
+**Bar Plot - Frequency of Levels**
+
+```{r bar plot cat 4}
+mydata %>% 
+  #filter(current_status=="yes" | current_status=="no") %>% 
+  ggplot(aes(x=current_status, y= ..prop.., group=1))+
+  geom_bar(fill="steelblue", width=0.5)+
+  ggtitle("Which one of the following categories best describes what you're doing now?") +
+  xlab("subject's response")
+```
+
+**Narrative summary**  
+<div id = "narrative">
+The participants in the **addhealth** study were asked, "*Which one of the following categories best describes what you're doing now?*" **913** out of **915** provided a response as to their activities while unemployed, with the options being "only temporarily laid off", "on maternity/paternity leave", "permanently disabled", "unemployed and looking for work", "student", "keeping house", "retired", or "other" with approximately **5%** of the participants responding **unemployed and looking for work**.  Approximately **1 out of 5** participants were unemployed and looking for work.
+</div>
+
+## 5th Categorical `family_impact_on_work`
+
+**Numerical Summary Table**  
+
+```{r summary table cat 5}
+family_impact_on_work <- mydata %>%
+  tabyl(family_impact_on_work) %>%
+  adorn_pct_formatting(digits=1) %>%
+  adorn_totals() 
+family_impact_on_work %>% 
+  kable() %>%
+  kable_styling(full_width = F, position="center")
+```
+
+
+**Bar Plot - Frequency of Levels**
+
+```{r bar plot cat 5}
+mydata %>% 
+  #filter(family_impact_on_work=="yes" | family_impact_on_work=="no") %>% 
+  ggplot(aes(x=current_status, y= ..prop.., group=1))+
+  geom_bar(fill="steelblue", width=0.5)+
+  ggtitle("Indicate how much you would agree or disagree with this statement: 
+          Family responsibilities have interfered with my ability to work.") +
+  xlab("subject's response")
+```
+
+## 6th Categorical `work_impact_family_time`
+
+**Numerical Summary Table**  
+
+```{r summary table cat 6}
+work_impact_family_time <- mydata %>%
+  tabyl(work_impact_family_time) %>%
+  adorn_pct_formatting(digits=1) %>%
+  adorn_totals() 
+work_impact_family_time %>% 
+  kable() %>%
+  kable_styling(full_width = F, position="center")
+```
+
+
+**Bar Plot - Frequency of Levels**
+
+```{r bar plot cat 6}
+mydata %>% 
+  #filter(work_impact_family_time=="yes" | work_impact_family_time=="no") %>% 
+  ggplot(aes(x=current_status, y= ..prop.., group=1))+
+  geom_bar(fill="steelblue", width=0.5)+
+  ggtitle("(In the past 12 months/Since you started your current job/In the last year of your most recent job), how often on your primary job (have you spent/have you spent/did you spend) less time with your family than you wanted to because of work responsibilities?") +
+  xlab("subject's response")
+```
+
+**Narrative summary**  
+<div id = "narrative">
+The participants in the **addhealth** study were asked, "*(In the past 12 months/Since you started your current job/In the last year of your most recent job), how often on your primary job (have you spent/have you spent/did you spend) less time with your family than you wanted to because of work responsibilities?*" **5112** out of **5114** provided a response as to how work impacted the amount of family time available, with the options being "frequently", "sometimes", "rarely", or "never", with approximately **39%** of the participants responding **never**.  Approximately **2 out of 5** participants did not feel their work impacted their family time negatively.
+</div>
+
 
 # Examining numerical variable 
 ## 1st Numerical `hrs_work_week`
@@ -97,7 +248,6 @@ hours_worked <- mydata %>%
 kable(round(hours_worked,1)) %>% 
 kable_styling(full_width = F, position="center")
 ```
-
 
 **Histogram - visualization of the distribution**
 
@@ -125,16 +275,77 @@ mydata %>%
 **Narrative Summary**
 <div id = "narrative">
 
-Participants were asked, in reference to their curren or most recent job (which they work more than 10 hours/week), "*How many hours a week (do/did) you usually work at this job?*"  
+Participants were asked, in reference to their current or most recent job (which they work more than 10 hours/week), "*How many hours a week (do/did) you usually work at this job?*"  
 
 * **5023** out of **5114** responded with hours between 10 and 120.  
   
 * **82** participants were a **legitimate skip** since they have not worked a paying job for at least 10 hours a week, they are not represented here.  
 
-The center of the distribution is best described with the **mode** and **median** of 40 hours/week.   There is considerable overall variation as hours vary from 10 to 120, although the middle 50% of particpants are between 40 and 45 hours, for an interquartile range (**IQR**) of 5 hours.  Weekly work hours is *slightly skewed to the **right*** (since outliers extend, to the right, to 120 hours).  This skew also results in the **mean** being greater than the **median**, which is a typically characteristic of right skewed distributions. 
+The center of the distribution is best described with the **mode** and **median** of 40 hours/week.   theire is considerable overall variation as hours vary from 10 to 120, although the middle 50% of particpants are between 40 and 45 hours, for an interquartile range (**IQR**) of 5 hours.  Weekly work hours is *slightly skewed to the **right*** (since outliers extend, to the right, to 120 hours).  This skew also results in the **mean** being greater than the **median**, which is a typically characteristic of right skewed distributions. 
 </div>
 
+## 2nd Numerical `number_of_jobs`
 
+**Numerical Summary Table** 
 
+```{r summarize num 2}
+number_of_jobs <- mydata %>% 
+  filter(H4LM12 < 13) %>% 
+  summarize(n = n(),
+            min = min(H4LM12 ),
+            q1 = quantile(H4LM12 , probs=0.25),
+            median = median(H4LM12 ),
+            mean = mean(H4LM12 ),
+            q3 = quantile(H4LM12 , probs=0.75),
+            max = max(H4LM12 ),
+            sd = sd(H4LM12 ))
 
+kable(round(number_of_jobs,1)) %>% 
+kable_styling(full_width = F, position="center")
+```
 
+**Histogram - visualization of the distribution**
+
+```{r hist num 2}
+mydata %>%
+  filter(H4LM12  < 13) %>% 
+  ggplot(aes(x=H4LM12 )) + 
+    geom_histogram(aes(y=..density..), color="white", fill="steelblue", binwidth = 5) + 
+      xlab("hours per week") +
+      ggtitle("How many hours a week (do/did) you 
+              usually work at this job?") 
+```
+
+**Boxplot - visualization of 5 number summary**
+
+```{r boxplot num 2}
+mydata %>%
+  filter(H4LM12  < 13) %>% 
+  ggplot(aes(y=H4LM12 , x=0)) + 
+    geom_boxplot(color="steelblue", width=0.6) + 
+      ggtitle("How many hours a week (do/did) you usually work at this job?")+
+  coord_flip()
+```
+
+**Narrative Summary**
+<div id = "narrative">
+
+Participants were asked, "*On how many jobs are you currently working for pay at least 10 hours a week?*"  
+
+* **4093** out of **5114** responded with hours between 10 and 120.  
+  
+* **1016** participants were a **legitimate skip** since they have not worked a paying job for at least 10 hours a week, they are not represented here.  
+
+The center of the distribution is best described with the **mode** and **median** of 1 job. There is considerable overall variation as number of jobs where 10 or more hours are worked vary from 1 to 12, although the middle 50% of particpants have 1 job, for an interquartile range (**IQR**) of 1 job.  Number of jobs held is *slightly skewed to the **right*** (since outliers extend, to the right, to 12 jobs).  This skew also results in the **mean** being greater than the **median**, which is a typically characteristic of right skewed distributions. 
+</div>
+
+```{r}
+save(current_status, file = "/cloud/project/data/current_status.Rdata")
+save(family_impact_on_work, file = "/cloud/project/data/family_impact_on_work.Rdata")
+save(hours_worked, file = "/cloud/project/data/hours_worked.Rdata")
+save(job_satisfaction, file = "/cloud/project/data/job_satisfaction.Rdata")
+save(number_of_jobs, file = "/cloud/project/data/number_of_jobs.Rdata")
+save(separation_cause, file = "/cloud/project/data/seperation_cause.Rdata")
+save(time_of_day_worked, file = "/cloud/project/data/time_of_day_worked.Rdata")
+save(work_impact_family_time, file = "/cloud/project/data/work_impact_family_time.Rdata")
+```

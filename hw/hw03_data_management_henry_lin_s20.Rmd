@@ -55,10 +55,10 @@ mydata <- mydata %>%
                                 .ordered=T))
 ```
 
-### Variable 2 (Sepaeration Cause)
+### Variable 2 (Separation Cause)
 ```{r}
 mydata <- mydata %>% 
-  mutate(seperation_cause = recode_factor(H4LM17,
+  mutate(separation_cause = recode_factor(H4LM17,
                                 "1"="layoff",
                                 "2"="plant closed",
                                 "3"="end of temporary or seasonal job",
@@ -146,21 +146,8 @@ mydata <- mydata %>%
 No need to recode.
 
 ### Variable 8 (Number of Jobs)
-```{r}
-mydata <- mydata %>%
-  mutate(number_of_jobs_worked = recode_factor(H4LM12,
-                                     "1"="1 job",
-                                     "2"="2 jobs",
-                                     "3"="3 jobs",
-                                     "4"="4 jobs",
-                                     "5"="5 jobs",
-                                     "6"="6 jobs",
-                                     "7"="7 jobs",
-                                     "12"="12 jobs",
-                                     "97"="legitimate skip",
-                                     "98"="don't know",
-                                     .ordered = T))
-```
+
+No need to recode.
 
 ```{r}
 mydata %>%
@@ -189,12 +176,6 @@ mydata %>%
 ```{r}
 mydata %>%
   tabyl(work_impact_family_time) %>%
-  adorn_pct_formatting(digits=2)
-```
-
-```{r}
-mydata %>%
-  tabyl(number_of_jobs_worked) %>% 
   adorn_pct_formatting(digits=2)
 ```
 

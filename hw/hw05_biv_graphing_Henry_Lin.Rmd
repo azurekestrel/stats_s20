@@ -6,17 +6,11 @@ output:
   html_document: default
 ---
 
-
-> Put the code to load any necessary additional libraries and read in your cleaned data here. Delete this text afterward. You will be docked points for not doing this. 
-
 ```{r, message=FALSE, warning=FALSE}
 library(ggplot2)
 library(knitr)
 opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE)
-# load() your data set here then delete this message
-```
 
-```{r}
 load("/cloud/project/data/clean.Rdata")
 load("/cloud/project/data/current_status.Rdata")
 load("/cloud/project/data/family_impact_on_work.Rdata")
@@ -27,15 +21,22 @@ load("/cloud/project/data/number_of_jobs.Rdata")
 load("/cloud/project/data/seperation_cause.Rdata")
 load("/cloud/project/data/time_of_day_worked.Rdata")
 load("/cloud/project/data/work_impact_family_time.Rdata")
-load("/cloud/project/data/addhealth4.Rdata")
+load("/cloud/project/data/addhealth4.RData")
 ```
 
 # C ~ C Association
 > Describe each variable in words (what does it say in the codebook) then delete this text. 
 
-```{r}
-# put your code to create the summary table or statistics here
-```
+Original Variable (from addhealth)  |   Modified Variable Name  |    Categorical or Numerical  |  Description (from addhealth)    
+-------------------|-----------------|------------------|------------------
+H4LM20 | time_of_day_worked | Categorical | Which one of these categories best describes the hours you (work/worked) at this job?
+H4LM17 | separation_cause | Categorical | What is the main reason you left your most recent job?
+H4LM26 | job_satisfaction | Categorical | How satisfied (are/were) you with this job?
+H4LM14 | current_status | Categorical | Which one of the following categories best describes what you're doing now after leaving your last job?
+H4LM28 | family_impact_on_work | Categorical |Indicate how much you would agree or disagree with this statement: Family responsibilities have interfered with my ability to work.
+H4LM30 | work_impact_family_time | Categorical | (In the past 12 months/Since you started your current job/In the last year of your most recent job), how often on your primary job (have you spent/have you spent/did you spend) less time with your family than you wanted to because of work responsibilities?
+H4LM19 | time_worked | Numerical | How many hours a week (do/did) you usually work at this job?
+H4LM12 | number_of_jobs_worked | Numerical | On how many jobs are you currently working for pay at least 10 hours a week?
 
 ```{r}
 # put your code to create the plot here

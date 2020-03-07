@@ -43,7 +43,7 @@ H4LM26 | job_satisfaction | Categorical | How satisfied (are/were) you with this
 H4LM14 | current_status | Categorical | Which one of the following categories best describes what you're doing now?
 H4LM28 | family_impact_on_work | Categorical |Indicate how much you would agree or disagree with this statement: Family responsibilities have interfered with my ability to work.
 H4LM30 | work_impact_family_time | Categorical | (In the past 12 months/Since you started your current job/In the last year of your most recent job), how often on your primary job (have you spent/have you spent/did you spend) less time with your family than you wanted to because of work responsibilities?
-H4LM19 | time_worked | Numerical | How many hours a week (do/did) you usually work at this job?
+H4LM19 | hours_worked | Numerical | How many hours a week (do/did) you usually work at this job?
 H4LM12 | number_of_jobs_worked | Numerical | On how many jobs are you currently working for pay at least 10 hours a week?
 
 # Examing categorical variables 
@@ -52,11 +52,16 @@ H4LM12 | number_of_jobs_worked | Numerical | On how many jobs are you currently 
 **Numerical Summary Table**  
 
 ```{r summary table cat 1}
-time_of_day_worked <- mydata %>%
+time_of_day_worked<-mydata %>%
+  
+  filter(time_of_day_worked %in% c ("regular day", "regular evening", "regular night", "shift rotates", "split shift", "irregular schedule or hours", "other")) %>%
+  droplevels() %>%
+  
   tabyl(time_of_day_worked) %>%
   adorn_pct_formatting(digits=1) %>%
-  adorn_totals() 
-time_of_day_worked %>% 
+  adorn_totals()
+
+time_of_day_worked %>%
   kable() %>%
   kable_styling(full_width = F, position="center")
 ```
@@ -66,10 +71,13 @@ time_of_day_worked %>%
 ```{r bar plot cat 1}
 mydata %>% 
   #filter(time_of_day_worked=="yes" | time_of_day_worked=="no") %>% 
+  filter(time_of_day_worked %in% c ("regular day", "regular evening", "regular night", "shift rotates", "split shift", "irregular schedule or hours", "other")) %>%
   ggplot(aes(x=time_of_day_worked, y= ..prop.., group=1))+
   geom_bar(fill="steelblue", width=0.5)+
-  ggtitle("Which one of these categories best describes the hours you (work/worked) at this job?") +
-  xlab("subject's response")
+  ggtitle("Which one of these categories best describes the hours 
+          you (work/worked) at this job?") +
+  xlab("subject's response")+
+coord_flip()
 ```
 
 **Narrative summary**  
@@ -83,6 +91,10 @@ The participants in the **addhealth** study were asked, "*Which one of these cat
 
 ```{r summary table cat 2}
 separation_cause <- mydata %>%
+  
+  filter(separation_cause %in% c ("layoff", "plant closed", "end of temporary or seasonal job", "discharged or fired", "program ended", "health prolems", "pregnancy or family reasons", "return to school", "quit to look for another job", "quit to take another job", "retired", "military service", "incarceration", "other")) %>%
+  droplevels() %>%
+  
   tabyl(separation_cause) %>%
   adorn_pct_formatting(digits=1) %>%
   adorn_totals() 
@@ -96,10 +108,12 @@ separation_cause %>%
 ```{r bar plot cat 2}
 mydata %>% 
   #filter(separation_cause=="yes" | separation_cause=="no") %>% 
+  filter(separation_cause %in% c ("layoff", "plant closed", "end of temporary or seasonal job", "discharged or fired", "program ended", "health prolems", "pregnancy or family reasons", "return to school", "quit to look for another job", "quit to take another job", "retired", "military service", "incarceration", "other")) %>%
   ggplot(aes(x=separation_cause, y= ..prop.., group=1))+
   geom_bar(fill="steelblue", width=0.5)+
   ggtitle("What is the main reason you left your most recent job?") +
-  xlab("subject's response")
+  xlab("subject's response")+
+  coord_flip()
 ```
 
 **Narrative summary**  
@@ -113,6 +127,10 @@ The participants in the **addhealth** study were asked, "*What is the main reaso
 
 ```{r summary table cat 3}
 job_satisfaction <- mydata %>%
+  
+  filter(job_satisfaction %in% c ("extremely satisfied", "satisfied", "neither satisfied nor dissatisfied", "dissatisfied", "extremely dissatisfied", "refused")) %>%
+  droplevels() %>%
+  
   tabyl(job_satisfaction) %>%
   adorn_pct_formatting(digits=1) %>%
   adorn_totals() 
@@ -127,10 +145,12 @@ job_satisfaction %>%
 ```{r bar plot cat 3}
 mydata %>% 
   #filter(job_satisfaction=="yes" | job_satisfaction=="no") %>% 
+  filter(job_satisfaction %in% c ("extremely satisfied", "satisfied", "neither satisfied nor dissatisfied", "dissatisfied", "extremely dissatisfied", "refused")) %>%
   ggplot(aes(x=job_satisfaction, y= ..prop.., group=1))+
   geom_bar(fill="steelblue", width=0.5)+
   ggtitle("How satisfied (are/were) you with this job?") +
-  xlab("subject's response")
+  xlab("subject's response")+
+  coord_flip()
 ```
 
 **Narrative summary**  
@@ -144,6 +164,10 @@ The participants in the **addhealth** study were asked, "*How satisfied (are/wer
 
 ```{r summary table cat 4}
 current_status <- mydata %>%
+  
+  filter(current_status %in% c("only temporarily laid off","on sick leave or temporarily disabled", "on maternity/paternity leave", "permanently disabled", "unemployed and looking for work", "unemployed and looking for work", "student", "keeping house", "retired", "other")) %>%
+  droplevels() %>%
+  
   tabyl(current_status) %>%
   adorn_pct_formatting(digits=1) %>%
   adorn_totals() 
@@ -158,10 +182,11 @@ current_status %>%
 ```{r bar plot cat 4}
 mydata %>% 
   #filter(current_status=="yes" | current_status=="no") %>% 
-  ggplot(aes(x=current_status, y= ..prop.., group=1))+
+  filter(current_status %in% c("only temporarily laid off","on sick leave or temporarily disabled", "on maternity/paternity leave", "permanently disabled", "unemployed and looking for work", "unemployed and looking for work", "student", "keeping house", "retired", "other")) %>%  ggplot(aes(x=current_status, y= ..prop.., group=1))+
   geom_bar(fill="steelblue", width=0.5)+
   ggtitle("Which one of the following categories best describes what you're doing now?") +
-  xlab("subject's response")
+  xlab("subject's response")+
+coord_flip()
 ```
 
 **Narrative summary**  
@@ -175,6 +200,10 @@ The participants in the **addhealth** study were asked, "*Which one of the follo
 
 ```{r summary table cat 5}
 family_impact_on_work <- mydata %>%
+  
+  filter(family_impact_on_work %in% c("strongly agree", "agree", "neither agree or disagree", "disagree", "strongly disagree")) %>%
+  droplevels() %>%
+  
   tabyl(family_impact_on_work) %>%
   adorn_pct_formatting(digits=1) %>%
   adorn_totals() 
@@ -189,11 +218,13 @@ family_impact_on_work %>%
 ```{r bar plot cat 5}
 mydata %>% 
   #filter(family_impact_on_work=="yes" | family_impact_on_work=="no") %>% 
-  ggplot(aes(x=current_status, y= ..prop.., group=1))+
+  filter(family_impact_on_work %in% c("strongly agree", "agree", "neither agree or disagree", "disagree", "strongly disagree")) %>%
+  ggplot(aes(x=family_impact_on_work, y= ..prop.., group=1))+
   geom_bar(fill="steelblue", width=0.5)+
   ggtitle("Indicate how much you would agree or disagree with this statement: 
           Family responsibilities have interfered with my ability to work.") +
-  xlab("subject's response")
+  xlab("subject's response")+
+  coord_flip()
 ```
 
 ## 6th Categorical `work_impact_family_time`
@@ -202,6 +233,10 @@ mydata %>%
 
 ```{r summary table cat 6}
 work_impact_family_time <- mydata %>%
+  
+  filter(work_impact_family_time %in% c("frequently", "sometimes", "rarely", "never")) %>%
+  droplevels() %>%
+  
   tabyl(work_impact_family_time) %>%
   adorn_pct_formatting(digits=1) %>%
   adorn_totals() 
@@ -216,10 +251,16 @@ work_impact_family_time %>%
 ```{r bar plot cat 6}
 mydata %>% 
   #filter(work_impact_family_time=="yes" | work_impact_family_time=="no") %>% 
-  ggplot(aes(x=current_status, y= ..prop.., group=1))+
+  filter(work_impact_family_time %in% c("frequently", "sometimes", "rarely", "never")) %>%
+  ggplot(aes(x=work_impact_family_time, y= ..prop.., group=1))+
   geom_bar(fill="steelblue", width=0.5)+
-  ggtitle("(In the past 12 months/Since you started your current job/In the last year of your most recent job), how often on your primary job (have you spent/have you spent/did you spend) less time with your family than you wanted to because of work responsibilities?") +
-  xlab("subject's response")
+  
+  ggtitle("(In the past 12 months/Since you started your current job/ 
+  In the last year of your most recent job), 
+  how often on your primary job (have you spent/have you spent/did
+          responsibilities?") +
+  xlab("subject's response")+
+  coord_flip()
 ```
 
 **Narrative summary**  
@@ -235,15 +276,15 @@ The participants in the **addhealth** study were asked, "*(In the past 12 months
 
 ```{r summarize num 1}
 hours_worked <- mydata %>% 
-  filter(H4LM19 < 121) %>% 
+  filter(hours_worked < 121) %>% 
   summarize(n = n(),
-            min = min(H4LM19 ),
-            q1 = quantile(H4LM19 , probs=0.25),
-            median = median(H4LM19 ),
-            mean = mean(H4LM19 ),
-            q3 = quantile(H4LM19 , probs=0.75),
-            max = max(H4LM19 ),
-            sd = sd(H4LM19 ))
+            min = min(hours_worked ),
+            q1 = quantile(hours_worked , probs=0.25),
+            median = median(hours_worked ),
+            mean = mean(hours_worked ),
+            q3 = quantile(hours_worked , probs=0.75),
+            max = max(hours_worked ),
+            sd = sd(hours_worked ))
 
 kable(round(hours_worked,1)) %>% 
 kable_styling(full_width = F, position="center")
@@ -253,20 +294,21 @@ kable_styling(full_width = F, position="center")
 
 ```{r hist num 1}
 mydata %>%
-  filter(H4LM19  < 121) %>% 
-  ggplot(aes(x=H4LM19 )) + 
+  filter(hours_worked  < 121) %>% 
+  ggplot(aes(x=hours_worked )) + 
     geom_histogram(aes(y=..density..), color="white", fill="steelblue", binwidth = 5) + 
       xlab("hours per week") +
       ggtitle("How many hours a week (do/did) you 
-              usually work at this job?") 
+              usually work at this job?") +
+  coord_flip()
 ```
 
 **Boxplot - visualization of 5 number summary**
 
 ```{r boxplot num 1}
 mydata %>%
-  filter(H4LM19  < 121) %>% 
-  ggplot(aes(y=H4LM19 , x=0)) + 
+  filter(hours_worked  < 121) %>% 
+  ggplot(aes(y=hours_worked , x=0)) + 
     geom_boxplot(color="steelblue", width=0.6) + 
       ggtitle("How many hours a week (do/did) you usually work at this job?")+
   coord_flip()
@@ -290,15 +332,15 @@ The center of the distribution is best described with the **mode** and **median*
 
 ```{r summarize num 2}
 number_of_jobs <- mydata %>% 
-  filter(H4LM12 < 13) %>% 
+  filter(number_of_jobs_worked < 13) %>% 
   summarize(n = n(),
-            min = min(H4LM12 ),
-            q1 = quantile(H4LM12 , probs=0.25),
-            median = median(H4LM12 ),
-            mean = mean(H4LM12 ),
-            q3 = quantile(H4LM12 , probs=0.75),
-            max = max(H4LM12 ),
-            sd = sd(H4LM12 ))
+            min = min(number_of_jobs_worked ),
+            q1 = quantile(number_of_jobs_worked , probs=0.25),
+            median = median(number_of_jobs_worked ),
+            mean = mean(number_of_jobs_worked ),
+            q3 = quantile(number_of_jobs_worked , probs=0.75),
+            max = max(number_of_jobs_worked ),
+            sd = sd(number_of_jobs_worked ))
 
 kable(round(number_of_jobs,1)) %>% 
 kable_styling(full_width = F, position="center")
@@ -308,20 +350,21 @@ kable_styling(full_width = F, position="center")
 
 ```{r hist num 2}
 mydata %>%
-  filter(H4LM12  < 13) %>% 
-  ggplot(aes(x=H4LM12 )) + 
+  filter(number_of_jobs_worked  < 13) %>% 
+  ggplot(aes(x=number_of_jobs_worked )) + 
     geom_histogram(aes(y=..density..), color="white", fill="steelblue", binwidth = 5) + 
       xlab("hours per week") +
       ggtitle("How many hours a week (do/did) you 
-              usually work at this job?") 
+              usually work at this job?") +
+  coord_flip()
 ```
 
 **Boxplot - visualization of 5 number summary**
 
 ```{r boxplot num 2}
 mydata %>%
-  filter(H4LM12  < 13) %>% 
-  ggplot(aes(y=H4LM12 , x=0)) + 
+  filter(number_of_jobs_worked  < 13) %>% 
+  ggplot(aes(y=number_of_jobs_worked , x=0)) + 
     geom_boxplot(color="steelblue", width=0.6) + 
       ggtitle("How many hours a week (do/did) you usually work at this job?")+
   coord_flip()

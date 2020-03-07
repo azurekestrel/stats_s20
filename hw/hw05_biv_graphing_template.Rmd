@@ -12,8 +12,14 @@ output:
 ```{r, message=FALSE, warning=FALSE}
 library(ggplot2)
 library(knitr)
+library(dplyr)
+library(ggplot2)
+library(janitor)
+library(purrr)
+library(kableExtra)
+library(ggmosaic) 
+library(scales)
 opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE)
-# load() your data set here then delete this message
 ```
 
 ```{r}

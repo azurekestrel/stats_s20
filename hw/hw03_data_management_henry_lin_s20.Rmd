@@ -21,6 +21,7 @@ Library necessary packages
 ```{r}
 library(dplyr)
 library(janitor)
+library(tidyr)
 ```
 
 ## Load in original data 
@@ -33,7 +34,7 @@ load("/cloud/project/data/addhealth4.RData")
 ## New data frame with selected variables 
 ```{r}
 mydata <- addhealth4 %>% 
-  select(H4LM20, H4LM17, H4LM26, H4LM14, H4LM28, H4LM30, H4LM19, H4LM12)
+  select(H4LM20, H4LM17, H4LM26, H4LM14, H4LM28, H4LM30, H4LM19, H4LM12, BIO_SEX4)
 ```
 
 
@@ -143,11 +144,43 @@ mydata <- mydata %>%
 
 ### Variable 7 (Amount of Time Worked)
 
-No need to recode.
+```{r}
+
+mydata <- mydata %>%
+  mutate(hours_worked = H4LM19) 
+
+```
+
 
 ### Variable 8 (Number of Jobs)
 
-No need to recode.
+```{r}
+
+mydata <- mydata %>%
+  mutate(number_of_jobs_worked = H4LM12) 
+
+```
+
+### Variable 9 (Sex)
+```{r}
+mydata <- mydata %>% 
+  mutate(bio_sex = recode_factor(BIO_SEX4,
+                                "1"="male",
+                                "2"="female",
+                                .ordered=T))
+```
+
+### Variable 10 (High School Graduation)
+```{r}
+mydata <- mydata %>%
+mutate(high_school = recode_factor(H4ED1,
+                                   "1"= "finished high school with diploma",
+                                   "2"= "earned a high school equivalency degree (GED)",
+                                   "3"= "earned a certificate of attendance or a certificate of completion"),
+                                   "4"= "did not receive a high school diploma, equivalency degree (GED), or other certificate"),
+                                  "8"= "don")
+```
+
 
 ```{r}
 mydata %>%
@@ -179,6 +212,12 @@ mydata %>%
   adorn_pct_formatting(digits=2)
 ```
 
+```{r}
+mydata %>%
+  tabyl(bio_sex) %>%
+  adorn_pct_formatting(digits = 2)
+```
+
 ## Cleaned data frame
 
 **Step 1** : Select only the variables that you want to keep, so you only have the version of the variables that you want in your data frame.
@@ -194,7 +233,6 @@ save(mydata, file="/cloud/project/data/mydata.Rdata")
 
 ```{r}
 glimpse(mydata)
-glimpse(clean)
 ```
 
 ## Table of variables
@@ -207,5 +245,6 @@ H4LM26 | job_satisfaction | How satisfied (are/were) you with this job?
 H4LM14 | current_status | Which one of the following categories best describes what you're doing now?
 H4LM28 | family_impact_on_work | Indicate how much you would agree or disagree with this statement: Family responsibilities have interfered with my ability to work.
 H4LM30 | work_impact_family_time | (In the past 12 months/Since you started your current job/In the last year of your most recent job), how often on your primary job (have you spent/have you spent/did you spend) less time with your family than you wanted to because of work responsibilities?
-H4LM19 | time_worked | How many hours a week (do/did) you usually work at this job? NOTE: Smallest 5 and largest 5 values are displayed.
+H4LM19 | hours_worked | How many hours a week (do/did) you usually work at this job? NOTE: Smallest 5 and largest 5 values are displayed.
 H4LM12 | number_of_jobs_worked | On how many jobs are you currently working for pay at least 10 hours a week?
+BIO_SEX4 | bio_sex | Male or Female?
